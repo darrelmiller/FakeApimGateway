@@ -13,7 +13,7 @@ namespace FakeApimGatewayTests
     public class Log2EventHubTests
     {
         
-        private static string SendRequestToEventHub(ApimContext context)
+        private static string SendRequestToEventHub(IContext context)
         {
             var requestLine = $"{context.Request.Method} {context.Request.Url.Path + context.Request.Url.QueryString} HTTP/1.1\r\n";
                                                      
@@ -35,7 +35,7 @@ namespace FakeApimGatewayTests
         }
 
 
-        private static string SendResponseToEventHub(ApimContext context)
+        private static string SendResponseToEventHub(IContext context)
         {
             var statusLine = $"HTTP/1.1 {context.Response.StatusCode} {context.Response.StatusReason}\r\n";
 

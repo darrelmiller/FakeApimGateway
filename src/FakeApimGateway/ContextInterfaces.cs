@@ -29,11 +29,7 @@ namespace FakeApimGateway
         IUrl ServiceUrl { get; }
     }
 
-    public interface IMessageBody
-    {
-        T As<T>(bool preserveContent = false) where T : class; //string, JObject,JToken,JArray, XNode,XElement,XDocument
-    }
-
+  
     public interface IDeployment
     {
         string Region { get; }
@@ -86,6 +82,11 @@ namespace FakeApimGateway
         string StatusReason { get; }
     }
 
+    public interface IMessageBody
+    {
+        T As<T>(bool preserveContent = false) where T : class; //string, JObject,JToken,JArray, XNode,XElement,XDocument
+    }
+
     public interface ISubscription
     {
         DateTime CreatedTime { get; }
@@ -119,7 +120,15 @@ namespace FakeApimGateway
     public class IHeaders : Dictionary<string, string[]>
     {
 
-        public string GetValueOrDefault(string headerName, string defaultValue) { return defaultValue; }
+        public string GetValueOrDefault(string headerName, string defaultValue) {
+            if (this.ContainsKey(headerName))
+            {
+                return String.Join(",", this[headerName]);
+            }
+            else {
+                return defaultValue;
+            }
+        }
 
     }
 

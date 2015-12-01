@@ -20,6 +20,9 @@
       <!-- Build .net45 Version -->
 	   <MSBuild Projects="$(ProjectFile)" 
               Properties="Configuration=$(Configuration);SolutionDir=$(SolutionDir);OutputPath=$(ArtifactsDir)\$(Project)\lib\net45"  />
+     <MSBuild Projects="$(BaseDir)\src\$(Project).portable\$(Project).portable.csproj" 
+              Properties="Configuration=$(Configuration);SolutionDir=$(SolutionDir);OutputPath=$(ArtifactsDir)\$(Project)\lib\dotnet5.1"  />
+
   </Target>
 
   <Target Name="Package">

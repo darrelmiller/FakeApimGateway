@@ -45,6 +45,20 @@ namespace FakeApimGateway
         }
     }
 
+    public class Api : IApi
+    {
+        public Api()
+        {
+            Id = "DefaultApiId";
+            Name = "DefaultApiName";
+            Path = "DefaultApiPath";
+            ServiceUrl = new ApimUrl(new Uri("https://example.org"));
+        }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public IUrl ServiceUrl { get; set; }
+    }
 
     public class Subscription : ISubscription
     {
@@ -58,22 +72,7 @@ namespace FakeApimGateway
         public DateTime? StartDate { get; set; }
     }
 
-    public class Api : IApi
-    {
-        public Api()
-        {
-            Id = "DefaultApiId";
-            Name = "DefaultApiName";
-            Path = "DefaultApiPath";
-            ServiceUrl = new ApimUrl(new Uri("https://example.org"));
-
-        }
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Path { get; set; }
-        public IUrl ServiceUrl { get; set; }
-    }
-
+   
     public class Product : IProduct
     {
         public Product()
@@ -154,7 +153,7 @@ namespace FakeApimGateway
         }
     }
 
-    internal class Request : IRequest
+    public class Request : IRequest
     {
         private ApimUrl _Url;
         private HttpRequestMessage _Request;
@@ -220,9 +219,16 @@ namespace FakeApimGateway
         }
         public T As<T>(bool preserveContent = false) where T : class
         {
-            return _Content.ReadAsStringAsync().Result as T;
+            if (typeof(T) == typeof(JObject))
+            {
+                return JObject.Parse(_Content.ReadAsStringAsync().Result) as T;
+            }
+            else {
+                return _Content.ReadAsStringAsync().Result as T;
+            }
         }
     }
+
     public class ApimUrl : IUrl
     {
         private Uri _Uri;

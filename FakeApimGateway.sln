@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeApimGateway", "src\FakeApimGateway\FakeApimGateway.csproj", "{AFC6F1F2-ED04-47A3-A5D6-148A652EF678}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeApimGatewayTests", "test\FakeApimGatewayTests\FakeApimGatewayTests.csproj", "{072450F8-39C5-4F95-B8B1-84E6F181F5BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeApimGateway.Portable", "src\FakeApimGateway.Portable\FakeApimGateway.Portable.csproj", "{0945A7DD-C96B-4D12-A1A3-1D5238B2277F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{072450F8-39C5-4F95-B8B1-84E6F181F5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{072450F8-39C5-4F95-B8B1-84E6F181F5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{072450F8-39C5-4F95-B8B1-84E6F181F5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0945A7DD-C96B-4D12-A1A3-1D5238B2277F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0945A7DD-C96B-4D12-A1A3-1D5238B2277F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0945A7DD-C96B-4D12-A1A3-1D5238B2277F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0945A7DD-C96B-4D12-A1A3-1D5238B2277F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
