@@ -22,6 +22,10 @@
               Properties="Configuration=$(Configuration);SolutionDir=$(SolutionDir);OutputPath=$(ArtifactsDir)\$(Project)\lib\net45"  />
      <MSBuild Projects="$(BaseDir)\src\$(Project).portable\$(Project).portable.csproj" 
               Properties="Configuration=$(Configuration);SolutionDir=$(SolutionDir);OutputPath=$(ArtifactsDir)\$(Project)\lib\dotnet5.1"  />
+     <MSBuild Projects="$(BaseDir)\src\$(Project).portable\$(Project).portable.csproj" 
+              Properties="Configuration=$(Configuration);SolutionDir=$(SolutionDir);OutputPath=$(ArtifactsDir)\$(Project)\lib\portable-net45+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10"  />
+
+              
 
   </Target>
 

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>FakeApimGateway</id>
-        <version>0.5.1-beta</version>
+        <version>0.5.2-beta</version>
         <authors>Darrel Miller</authors>
         <owners>Darrel Miller</owners>
         <projectUrl>https://github.com/darrelmiller/FakeApimGateway</projectUrl>
