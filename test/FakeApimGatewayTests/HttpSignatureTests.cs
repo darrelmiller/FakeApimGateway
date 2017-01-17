@@ -233,10 +233,9 @@ namespace FakeApimGatewayTests
             string auth = context.Request.Headers.GetValueOrDefault("Authorization", "");
             if (auth == "") { return "Missing Authorization header"; }
 
-            var seperator = auth.IndexOf(' ');
-            if (seperator == -1 ) { seperator = auth.Length; }
-            string scheme = auth.Substring(0, seperator).ToLower();
-            string parameterValues = auth.Substring(seperator).Trim();
+            var authvalues = auth.Split(new char[] { ' ' },2).Select(s=>s.Trim()).ToArray();
+            string scheme = authvalues[0].ToLower();
+            string parameterValues = authvalues.Length == 2 ? authvalues[1] : "";
 
             if (scheme != "signature") { return "Authorization scheme must be 'signature'"; }
 
