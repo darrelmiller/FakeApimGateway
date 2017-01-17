@@ -182,7 +182,10 @@ namespace FakeApimGateway
                     {
                         _Headers.Add(h.Key, h.Value.ToArray());
                     }
-                    _Headers.Add("Content-Length", new string[] { request.Content.Headers.ContentLength.ToString() });
+                    if (!_Headers.ContainsKey("Content-Length"))
+                    {
+                        _Headers.Add("Content-Length", new string[] { request.Content.Headers.ContentLength.ToString() });
+                    }
                     _Body = new MessageBody(request.Content);
                 }
             }

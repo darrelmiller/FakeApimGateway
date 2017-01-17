@@ -119,6 +119,10 @@ namespace FakeApimGateway
 
     public class IHeaders : Dictionary<string, string[]>
     {
+        public IHeaders() :base(StringComparer.OrdinalIgnoreCase)
+        {
+
+        }
 
         public string GetValueOrDefault(string headerName, string defaultValue) {
             if (this.ContainsKey(headerName))
